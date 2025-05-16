@@ -16,6 +16,8 @@ import { BlurView } from '@react-native-community/blur';
 import { LinearGradient } from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { COLORS } from '../../theme/colors';
+import { navigate } from '../../navigation/navigationUtils';
+import { useAuth } from '../../context';
 
 const { width, height } = Dimensions.get('window');
 
@@ -26,6 +28,8 @@ const AuthScreen = () => {
   const [error, setError] = useState<string | null>(null);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [activeTab, setActiveTab] = useState<'signin' | 'signup'>('signin');
+  const {login}=useAuth()
+
 
   const handleLogin = async () => {
     try {
@@ -37,6 +41,7 @@ const AuthScreen = () => {
       }
       
       await new Promise(resolve => setTimeout(resolve, 1000));
+      login({username:email})
       
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');

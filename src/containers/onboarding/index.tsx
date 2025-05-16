@@ -12,6 +12,7 @@ import {
   Platform,
 } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
+import { navigate } from '../../navigation/navigationUtils';
 
 const { width, height } = Dimensions.get('window');
 
@@ -35,7 +36,7 @@ const OnboardingCard: React.FC<CardProps> = ({
   // Convert gradient colors to background with linear gradient-like effect
   const mainColor = gradientColors[0];
   const accentColor = gradientColors[1];
-  
+
   return (
     <TouchableOpacity
       style={[
@@ -58,7 +59,7 @@ const OnboardingCard: React.FC<CardProps> = ({
             blurAmount={10}
           />
         )}
-        
+
         {/* Selection indicator */}
         <View style={styles.selectionIndicator}>
           <View
@@ -74,7 +75,7 @@ const OnboardingCard: React.FC<CardProps> = ({
         {/* Decorative elements */}
         <View style={[styles.decorativeCircle, { backgroundColor: accentColor }]} />
         <View style={[styles.decorativeSquare, { backgroundColor: accentColor }]} />
-        
+
         {/* Card content */}
         <View style={styles.cardContent}>
           <View style={styles.iconContainer}>
@@ -89,7 +90,7 @@ const OnboardingCard: React.FC<CardProps> = ({
           <Text style={styles.cardTitle}>{title}</Text>
           <Text style={styles.cardDescription}>{description}</Text>
         </View>
-        
+
         {/* Selected indicator */}
         {isSelected && (
           <View style={styles.checkMarkContainer}>
@@ -99,7 +100,7 @@ const OnboardingCard: React.FC<CardProps> = ({
           </View>
         )}
       </View>
-      
+
       {/* Card reflection/shadow effect */}
       <View style={[styles.cardReflection, { backgroundColor: mainColor }]} />
     </TouchableOpacity>
@@ -110,6 +111,12 @@ const OnboardingScreen: React.FC = () => {
   const [selectedType, setSelectedType] = useState<'user' | 'customer' | null>(null);
 
   const handleContinue = () => {
+    try {
+      navigate("Main")
+
+    } catch (error) {
+      console.log(error)
+    }
     if (selectedType) {
       // Navigate to the next screen based on selection
       console.log(`Continuing as ${selectedType}`);
@@ -120,12 +127,12 @@ const OnboardingScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#121212" />
-      
+
       {/* Decorative background elements */}
       <View style={styles.backgroundGradient} />
       <View style={styles.backgroundDecorativeCircle1} />
       <View style={styles.backgroundDecorativeCircle2} />
-      
+
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.header}>
           <Text style={styles.title}>Choose Your Path</Text>
@@ -139,7 +146,7 @@ const OnboardingScreen: React.FC = () => {
             title="I'm a User"
             description="Looking for services? Create a personal account to browse, book and manage your appointments."
             icon="https://via.placeholder.com/150"
-            gradientColors={['#1E3A8A', '#3B82F6']} 
+            gradientColors={['#1E3A8A', '#3B82F6']}
             isSelected={selectedType === 'user'}
             onSelect={() => setSelectedType('user')}
           />
@@ -246,7 +253,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   selectedCardContainer: {
-    transform: [{scale: 1.02}],
+    transform: [{ scale: 1.02 }],
   },
   card: {
     borderRadius: 20,
@@ -300,7 +307,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: 80,
     height: 80,
-    transform: [{rotate: '45deg'}],
+    transform: [{ rotate: '45deg' }],
     left: -20,
     bottom: -20,
     opacity: 0.3,

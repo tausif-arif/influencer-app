@@ -10,16 +10,19 @@ import SubscriptionScreen from './src/containers/subscription'
 import ContentScreen from './src/containers/content'
 import MonetizationScreen from './src/containers/monetization'
 import AudienceScreen from './src/containers/audience'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { AuthProvider } from './src/context'
 
 const App = () => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <StatusBar barStyle="dark-content" hidden />
-     <OnboardingScreen/>
-     {/* <AuthScreen/> */}
+    <SafeAreaProvider style={{ flex: 1 }}>
+          <AuthProvider >
+      
+     {/* <OnboardingScreen/> */}
      {/* <AnalyticsDashboard/> */}
-     {/* <Navigation/> */}
-    </SafeAreaView>
+     <Navigation/>
+     </AuthProvider>
+    </SafeAreaProvider>
   )
 }
 

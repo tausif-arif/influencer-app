@@ -7,6 +7,7 @@ import {
   Image,
   TouchableOpacity,
   Platform,
+  StatusBar,
 } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
 import { LinearGradient } from 'react-native-linear-gradient';
@@ -205,7 +206,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 20,
     height: '100%',
-    marginTop: Platform.OS === 'ios' ? 40 : 0,
+    marginTop: Platform.OS === 'ios' ? 40 : 10,
   },
   headerTitle: {
     fontSize: 20,

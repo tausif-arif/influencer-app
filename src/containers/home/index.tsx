@@ -209,7 +209,7 @@ const AnalyticsDashboard: React.FC = () => {
   
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor={COLORS.background} />
+      {/* <StatusBar barStyle="light-content" backgroundColor={COLORS.background} /> */}
       
       <Header />
       
@@ -342,6 +342,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: COLORS.border,
     zIndex: 1000,
+    paddingTop:20
   },
   headerContent: {
     flexDirection: 'row',
