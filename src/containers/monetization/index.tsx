@@ -291,6 +291,7 @@ const styles = StyleSheet.create({
     backgroundColor: Platform.OS === 'ios' ? 'transparent' : COLORS.backgroundLight,
     borderBottomWidth: 1,
     borderBottomColor: COLORS.border,
+    paddingBottom:25
   },
   headerContent: {
     flexDirection: 'row',

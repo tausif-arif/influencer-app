@@ -143,7 +143,7 @@ const OnboardingScreen: React.FC = () => {
 
         <View style={styles.cardsContainer}>
           <OnboardingCard
-            title="I'm a User"
+            title="I'm an Influencer"
             description="Looking for services? Create a personal account to browse, book and manage your appointments."
             icon="https://via.placeholder.com/150"
             gradientColors={['#1E3A8A', '#3B82F6']}

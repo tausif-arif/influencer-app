@@ -65,10 +65,10 @@ const AuthScreen = () => {
   return (
     <View style={styles.container}>
       <LinearGradient
-        colors={[COLORS.primaryLight, COLORS.background]}
+        colors={[COLORS.primary+10, COLORS.background]}
         style={StyleSheet.absoluteFill}
         start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
+        end={{ x: 0, y: 1 }}
       />
       
       <KeyboardAvoidingView

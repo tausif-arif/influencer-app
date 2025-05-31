@@ -223,6 +223,14 @@ const AnalyticsDashboard: React.FC = () => {
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.statsContainer}
         >
+           <StatCard
+            title="Revenue"
+            value={`$${analyticsData.totalRevenue.toLocaleString()}`}
+            change={analyticsData.revenueGrowth}
+            icon="💰"
+            color={COLORS.accent}
+            subtitle="This month"
+          />
           <StatCard
             title="Total Followers"
             value={analyticsData.totalFollowers.toLocaleString()}
@@ -238,14 +246,7 @@ const AnalyticsDashboard: React.FC = () => {
             color={COLORS.secondary}
             subtitle="Last 30 days avg."
           />
-          <StatCard
-            title="Revenue"
-            value={`$${analyticsData.totalRevenue.toLocaleString()}`}
-            change={analyticsData.revenueGrowth}
-            icon="💰"
-            color={COLORS.accent}
-            subtitle="This month"
-          />
+         
         </ScrollView>
 
         {/* Reach Statistics */}

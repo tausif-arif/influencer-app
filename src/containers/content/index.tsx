@@ -13,6 +13,7 @@ import { BlurView } from '@react-native-community/blur';
 import { LinearGradient } from 'react-native-linear-gradient';
 import { COLORS } from '../../theme/colors';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { globalStyles } from '../../constants';
 
 const { width } = Dimensions.get('window');
 
@@ -218,7 +219,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
   },
   header: {
-    height: 90,
+   // height: 90,
     backgroundColor: Platform.OS === 'ios' ? 'transparent' : COLORS.backgroundLight,
     borderBottomWidth: 1,
     borderBottomColor: COLORS.border,
@@ -228,8 +229,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 20,
-    height: '100%',
-    marginTop: Platform.OS === 'ios' ? 40 : 0,
+   // height: '100%',
+    marginTop: Platform.OS === 'ios' ? 50 : 0,
+    paddingVertical:10,
   },
   headerTitle: {
     fontSize: 24,
@@ -249,6 +251,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 12,
     backgroundColor: COLORS.backgroundLight,
+    //marginTop:20
   },
   tab: {
     flex: 1,

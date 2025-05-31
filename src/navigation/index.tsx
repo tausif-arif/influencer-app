@@ -132,13 +132,12 @@ const TabNavigator = () => {
           backgroundColor: COLORS.card,
           borderTopWidth: 1,
           borderTopColor: COLORS.border,
-          height: 60,
+       //   height: 60,
           paddingBottom: 8,
           paddingTop: 8,
         },
         tabBarLabelStyle: {
-          fontSize: 12,
-          fontWeight: '500',
+          fontWeight: 'bold',
         },
       })}
     >
@@ -204,7 +203,7 @@ const Navigation = () => {
   return (
     <View style={{ flex: 1 }}>
       <NavigationContainer ref={navigationRef}>
-        <StatusBar barStyle="dark-content" />
+        {/* <StatusBar barStyle="dark-content" /> */}
         <RootStack.Navigator
           screenOptions={{
             headerShown: false,
